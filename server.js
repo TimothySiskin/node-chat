@@ -17,6 +17,17 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 io.on("connection", socket => {
 console.log("client connected")
+socket.emit('message', "Welcome!")
+
+//Broadcast when a user connets
+
+socket.broadcast.emit('message', 'A user has join the chat')
+
+//on disconnetion
+
+socket.on('disconnect', ()=>{
+io.emit('message', 'A User has left the chat')
+})
 })
 
 //use port 3000 unless there exist a preconfigured port
