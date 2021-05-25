@@ -28,7 +28,18 @@ socket.broadcast.emit('message', 'A user has join the chat')
 socket.on('disconnect', ()=>{
 io.emit('message', 'A User has left the chat')
 })
+
+
+//Listen for msg
+socket.on('chat-message', (msg) => {
+    console.log(msg)
+    })
+
+    
 })
+
+
+
 
 //use port 3000 unless there exist a preconfigured port
 const PORT = process.env.PORT || 3000;
