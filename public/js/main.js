@@ -7,6 +7,10 @@ socket.on('message', message => {
 
 chatForm.addEventListener('submit', (e)=>{
 e.preventDefault();
+
+//Get msg text
 let msg = e.target.elements.message.value
-console.log(msg);
+
+//Emit msg to server
+socket.emit('chat-message', msg);
 })
