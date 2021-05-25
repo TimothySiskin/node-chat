@@ -32,10 +32,10 @@ io.emit('message', 'A User has left the chat')
 
 //Listen for msg
 socket.on('chat-message', (msg) => {
-    console.log(msg)
+    io.emit('message', msg)
     })
 
-    
+
 })
 
 
