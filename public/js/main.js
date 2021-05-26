@@ -1,6 +1,6 @@
 const socket = io();
 const chatForm = document.getElementById('chat-form')
-const chatMessages = document.querySelector('.chat-messagess')
+const chatMessages = document.querySelector('.chat-messages')
 
 //Message from server
 socket.on('message', message => {
@@ -20,9 +20,15 @@ let msg = e.target.elements.message.value
 
 //Emit msg to server
 socket.emit('chat-message', msg);
-})
+
 
 //Clear input
+e.target.elements.message.value = '';
+e.target.elements.message.focus();
+
+
+})
+
 
 
 //output message to DOM
