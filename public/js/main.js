@@ -34,9 +34,10 @@ e.target.elements.message.focus();
 //output message to DOM
 
 function outputMessage(message){
+    const {username, text, time} = message;
 const div = document.createElement('div');
-div.innerHTML = `<p class="meta">Placholder meta</p>
-<p class="text">${message}</p>`
+div.innerHTML = `<p class="meta">${username} <span>${time}</span></p>
+<p class="text">${text}</p>`
 div.classList.add('message')
 document.querySelector('.chat-messages').appendChild(div)
 }
