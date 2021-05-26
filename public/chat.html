@@ -8,39 +8,46 @@
     <title>Node Chat</title>
   </head>
   <body>
-    <main class="chat-main"></main>
-    <div class="chat-sidebar">
-      <h3>Room Name:</h3>
-      <h2 id="room-name">Placeholder</h2>
-      <h3>Users:</h3>
-      <ul id="Users">
-<li>Placeholder 1</li>
-<li>
-  Placeholder 2
-</li> 
-<li>
-  Placeholder 3
-</li>
-      </ul>
-    </div>
-    <div class="chat-messages">
-      <div class="message">
-        <p class="meta">Placholder meta</p>
-        <p class="text"> Placeholder text</p>
+    <div class="chat-container">
+      <header class="chat-header">
+<h1>Chat Title</h1>
+      </header>
+
+      <main class="chat-main"></main>
+      <div class="chat-sidebar">
+        <h3>Room Name:</h3>
+        <h2 id="room-name">Placeholder</h2>
+        <h3>Users:</h3>
+        <ul id="Users">
+  <li>Placeholder 1</li>
+  <li>
+    Placeholder 2
+  </li> 
+  <li>
+    Placeholder 3
+  </li>
+        </ul>
       </div>
-    </div>
-    <div class="chat-form-container">
-      <div class="chat-form" id="chat-form">
-        <form action="">
-          <input
-            required
-            type="text"
-            id="message"
-            placeholder="Enter message"
-          />
-          <button type="submit">Enter</button>
-        </form>
+      <div class="chat-messages">
+        <div class="message">
+          <p class="meta">Placholder meta</p>
+          <p class="text"> Placeholder text</p>
+        </div>
       </div>
+      <div class="chat-form-container">
+        <div class="chat-form" id="chat-form">
+          <form action="">
+            <input
+              required
+              type="text"
+              id="message"
+              placeholder="Enter message"
+            />
+            <button type="submit">Enter</button>
+          </form>
+        </div>
+      </div>
+
     </div>
 <script src="/socket.io/socket.io.js"></script>
   <script src="./js/main.js"></script>
