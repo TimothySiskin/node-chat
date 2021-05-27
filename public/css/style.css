@@ -125,3 +125,56 @@ a {
   height: 40px;
   flex: 1;
 }
+
+/* Index site */
+
+.container {
+  max-width: 500px;
+  margin: 80px auto;
+  color: #fff;
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
+  background: var(--dark-color-1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.main {
+  padding: 30px 40px;
+  background: var(--dark-color-2);
+}
+
+.main p {
+  margin-bottom: 20px;
+}
+
+.main .form-control {
+  margin-bottom: 20px;
+}
+
+.main label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.main input[type="text"] {
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  width: 100%;
+}
+
+.main select {
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  width: 100%;
+}
+
+.main .btn {
+  margin-top: 20px;
+  width: 100%;
+}
