@@ -3,6 +3,7 @@ const express = require("express");
 const http = require("http");
 const socketio = require("socket.io");
 const formatMessages = require("./utils/messages");
+const { userJoin, getCurrentUser } = require("./utils/users");
 
 //creating express server
 const app = express();
@@ -19,20 +20,29 @@ const botName = "chatBot";
 //on client connection
 
 io.on("connection", (socket) => {
-  console.log("client connected");
-  socket.emit("message", formatMessages(botName, "Welcome!"));
+  //Welcome curren user
+  socket.on("joinRoom", ({ username, room }) => {
+    const user = userJoin(socket.id, username, room);
+    socket.join(user.room);
+    socket.emit("message", formatMessages(botName, `Welcome ${username}`));
 
-  //Broadcast when a user connets
+    //Broadcast when a user connets
 
-  socket.broadcast.emit(
-    "message",
-    formatMessages("botName", "A user has join the chat")
-  );
+    socket.broadcast
+      .to(user.room)
+      .emit(
+        "message",
+        formatMessages("botName", `${username} has join the chat`)
+      );
 
-  //on disconnetion
+    //on disconnetion
 
-  socket.on("disconnect", () => {
-    io.emit("message", formatMessages("botName", "A User has left the chat"));
+    socket.on("disconnect", () => {
+      io.to(user.room).emit(
+        "message",
+        formatMessages("botName", "A User has left the chat")
+      );
+    });
   });
 
   //Listen for msg
