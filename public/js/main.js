@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io("https://dry-chamber-15011.herokuapp.com/");
 const chatForm = document.getElementById("chat-form");
 const chatMessages = document.querySelector(".chat-messages");
 const roomName = document.getElementById("room-name");
